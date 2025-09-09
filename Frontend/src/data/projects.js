@@ -18,7 +18,7 @@ export const projects = [
     category: 'frontend',
     links: {
       github: "https://github.com/Narinder098/Spotify-clone",
-      live: 'https://demo.com'
+      live: 'https://cloneplayer.netlify.app/'
     }
   },
   // {
