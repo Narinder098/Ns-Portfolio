@@ -1,27 +1,48 @@
+import React from 'react';
+
 export default function Navbar() {
-    const menuItems = ['About', 'Experience', 'Skills', 'Projects', 'Certifications', 'Contact'];
+  const menuItems = ['About', 'Experience', 'Skills', 'Projects', 'Certifications'];
 
-    return (
-        <nav className="fixed w-full bg-white/80 dark:bg-[#0a192f]/80 backdrop-blur-sm z-50 px-8 py-4 transition-colors duration-300 border-b border-gray-200 dark:border-gray-800">
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
-                <a href="#" className="text-[#64ffda] font-bold text-2xl group">
-                    <span className="group-hover:animate-pulse">Narinder.dev</span>
-                </a>
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-                <div className="hidden md:flex items-center space-x-8">
-                    {menuItems.map((item) => (
-                        <a
-                            key={item}
-                            href={`#${item}`}
-                            className="relative capitalize text-[#8cbaaf] hover:text-[#64ffda]/80 transition-colors group"
-                        >
-                            {item}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#64ffda] transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                    ))}
-                </div>
+  return (
+    <nav className="fixed w-full bg-white/90 dark:bg-[#0a192f]/90 backdrop-blur-sm z-50 px-4 py-4 transition-colors duration-300 border-b border-gray-200 dark:border-gray-800">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <button
+          onClick={() => scrollToSection('hero')} // replace 'hero' with your top section ID
+          className="text-[#64ffda] font-bold text-2xl group"
+        >
+          <span className="group-hover:animate-pulse">Narinder.dev</span>
+        </button>
 
-            </div>
-        </nav>
-    );
-};
+        {/* Menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          {menuItems.map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className="relative group text-[#64ffda] hover:text-[#64ffda]/80 capitalize transition-colors"
+            >
+              {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#64ffda] transition-all duration-300 group-hover:w-full"></span>
+            </button>
+          ))}
+
+          {/* Hire Me Button */}
+          <button
+            onClick={() => scrollToSection('Contact')}
+            className="border border-[#64ffda] px-4 py-1 text-[#64ffda] hover:bg-[#64ffda]/10 transition-colors"
+          >
+            Hire Me
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+}
