@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <button
-          onClick={() => scrollToSection('About')}
+          onClick={() => scrollToSection('Hero')}
           className="text-yellow-500/75 font-bold text-2xl group">
           <span className="group-hover:animate-pulse ">Narinder.dev</span>
         </button>

@@ -12,7 +12,7 @@ export default function Hero() {
     };
 
     return (
-        <section id="About"
+        <section id="Hero"
             className="relative min-h-screen flex items-center px-6 md:px-16 overflow-hidden">
             {/* Glow Background */}
             <div className="absolute w-[600px] h-[600px] bg-yellow-500/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
