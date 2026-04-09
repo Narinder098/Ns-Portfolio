@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-white dark:bg-[#162c4e] text-gray-800 dark:text-gray-300 min-h-screen transition-colors duration-300">
+      <div className="bg-[#112233] text-gray-300 min-h-screen transition-colors duration-300">
         {/* Animated Background */}
         <div className="fixed inset-0 -z-10 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
