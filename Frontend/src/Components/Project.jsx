@@ -3,7 +3,9 @@ import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 export default function Projects() {
   return (
-    <section className="max-w-6xl mx-auto px-6 md:px-16 py-24">
+    <section
+      id="projects"
+      className="max-w-6xl mx-auto px-6 md:px-16 py-24">
 
       {/* HEADER */}
       <div className="flex items-center gap-4 mb-14">

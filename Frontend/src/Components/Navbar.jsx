@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Navbar() {
-  const menuItems = ['About', 'Experience', 'Skills', 'Projects', 'Certifications'];
+  const menuItems = ['about', 'experience', 'skills', 'projects', 'certifications'];
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -34,7 +34,7 @@ export default function Navbar() {
 
           {/* Hire Me Button */}
           <button
-            onClick={() => scrollToSection('Contact')}
+            onClick={() => scrollToSection('contact')}
             className="border border-[#bbd3cd] px-4 py-1 text-[#bbd3cd] hover:bg-[#64ffda]/10 transition-colors">
             Hire Me
           </button>

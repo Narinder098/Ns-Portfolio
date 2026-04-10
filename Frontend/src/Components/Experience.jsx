@@ -4,7 +4,7 @@ import { experiences } from "../data/experience";
 export default function Experience() {
   return (
     <section
-      id="Experience"
+      id="experience"
       className="relative z-10 max-w-6xl mx-auto px-6 md:px-16 py-24">
       {/* HEADER */}
       <div className="flex items-center gap-4 mb-14">
