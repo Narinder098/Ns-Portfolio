@@ -44,21 +44,36 @@ export default function Hero() {
 
                 {/* Buttons */}
                 <div className="flex flex-wrap gap-4 mb-12 justify-center md:justify-start">
+
+                    {/* PRIMARY - View Work */}
                     <motion.button
-                        onClick={() => scrollToSection('Projects')}
-                        className="bg-yellow-500 text-[#0d1b2a] px-8 py-3 text-xs uppercase tracking-widest font-semibold hover:bg-yellow-400 transition rounded-md flex items-center gap-2"
-                        whileHover={{ y: -3 }}>
-                        View My Work
-                        <ArrowDown className="inline-block ml-2 group-hover:animate-bounce" />
+                        onClick={() => scrollToSection('projects')}
+                        className="group bg-yellow-500 text-[#0d1b2a] px-8 py-3 text-xs uppercase tracking-widest font-semibold rounded-md flex items-center gap-2 shadow-lg shadow-yellow-500/10 hover:bg-yellow-400 transition"
+                        whileHover={{ y: -4, scale: 1.02 }}
+                    >
+                        View Work
+                        <ArrowDown className="transition-transform group-hover:translate-y-1" size={16} />
                     </motion.button>
 
-                    {/* Get In Touch */}
+                    {/* SECONDARY - Resume */}
+                    <motion.a
+                        href="/Narinder_Suthar_Resume.pdf"
+                        download
+                        className="group border border-yellow-500 text-yellow-500 px-8 py-3 text-xs uppercase tracking-widest rounded-md flex items-center gap-2 hover:bg-yellow-500 hover:text-[#0d1b2a] transition shadow-sm hover:shadow-yellow-500/20"
+                        whileHover={{ y: -4, scale: 1.02 }}
+                    >
+                        Download Resume
+                    </motion.a>
+
+                    {/* TERTIARY - Contact */}
                     <motion.button
-                        onClick={() => scrollToSection('Contact')}
-                        className="border border-gray-400 px-8 py-3 text-xs uppercase tracking-widest hover:border-yellow-500 hover:text-yellow-500 transition rounded-md"
-                        whileHover={{ y: -3 }}>
+                        onClick={() => scrollToSection('contact')}
+                        className="border border-gray-500/50 px-8 py-3 text-xs uppercase tracking-widest rounded-md text-gray-400 hover:border-yellow-500 hover:text-yellow-500 transition"
+                        whileHover={{ y: -4 }}
+                    >
                         Get In Touch
                     </motion.button>
+
                 </div>
 
                 {/* Stats */}
