@@ -21,27 +21,30 @@ export default function Projects() {
         {projects.map((p, i) => (
           <div
             key={i}
-            className={`grid md:grid-cols-2 border border-yellow-500/20 overflow-hidden transition hover:border-yellow-500/40 ${p.reverse ? "md:[direction:rtl]" : ""
+            className={`group relative grid md:grid-cols-2 border border-yellow-500/20 overflow-hidden transition-all duration-300 hover:border-yellow-500/50 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(234,179,8,0.08)] ${p.reverse ? "md:[direction:rtl]" : ""
               }`}>
             {/* IMAGE SIDE */}
-            <div className="relative min-h-[320px] bg-[#1a2f45] flex items-center justify-center md:[direction:ltr]">
+            <div className="relative min-h-[280px] md:min-h-[340px] bg-[#1a2f45] flex items-center justify-center overflow-hidden md:[direction:ltr]">
 
-              {/* Label */}
-              <div className="font-serif text-6xl text-yellow-500/10 italic">
+              {/* Background label */}
+              <div className="font-serif text-6xl md:text-7xl text-yellow-500/10 italic group-hover:scale-110 transition duration-500">
                 {p.label}
               </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent"></div>
+              {/* Glow overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent opacity-70"></div>
 
-              {/* Big Number */}
-              <div className="absolute bottom-6 right-6 font-serif text-6xl text-yellow-500/10">
+              {/* Subtle hover glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-yellow-500/5"></div>
+
+              {/* Big number */}
+              <div className="absolute bottom-4 right-4 font-serif text-5xl text-yellow-500/10">
                 {p.id}
               </div>
             </div>
 
             {/* CONTENT */}
-            <div className="bg-[#112233]/80 p-8 md:p-12 flex flex-col justify-center md:[direction:ltr]">
+            <div className="bg-[#112233]/80 p-6 md:p-10 flex flex-col justify-center md:[direction:ltr]">
 
               {/* Type */}
               <div className="text-[11px] tracking-[2px] uppercase text-yellow-500 mb-2">
@@ -49,7 +52,7 @@ export default function Projects() {
               </div>
 
               {/* Title */}
-              <h3 className="font-serif text-2xl md:text-3xl mb-3">
+              <h3 className="font-serif text-xl md:text-2xl mb-3 group-hover:text-yellow-500 transition">
                 {p.title}
               </h3>
 
@@ -63,7 +66,7 @@ export default function Projects() {
                 {p.tech.map((t, i) => (
                   <span
                     key={i}
-                    className="text-[11px] px-3 py-1 bg-yellow-500/10 text-yellow-500 border border-yellow-500/20">
+                    className="text-[10px] px-3 py-1 bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 group-hover:border-yellow-500/40 transition">
                     {t}
                   </span>
                 ))}
@@ -76,7 +79,7 @@ export default function Projects() {
                     href={p.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 hover:text-yellow-500">
+                    className="flex items-center gap-2 text-gray-400 hover:text-yellow-500 transition">
                     <FiExternalLink className="text-sm" />
                     LIVE DEMO
                   </a>
@@ -86,7 +89,7 @@ export default function Projects() {
                   href={p.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 hover:text-yellow-500">
+                   className="flex items-center gap-2 text-gray-400 hover:text-yellow-500 transition">
                   <FiGithub className="text-sm" />
                   GITHUB
                 </a>
