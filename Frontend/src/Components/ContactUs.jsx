@@ -1,6 +1,33 @@
 import { socialLinks } from '../data/Social';
+import toast from "react-hot-toast";
 
 export default function Contact() {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+   // const toastId = toast.loading("Sending...");
+
+    try {
+      // simulate API call (or EmailJS later)
+      // await new Promise((resolve) => setTimeout(resolve, 1500));
+
+      toast.success("Message sent successfully ", {
+        style: {
+          background: "#1a2f45",
+          color: "#fff",
+          border: "1px solid rgba(234,179,8,0.3)",
+        },
+      });
+
+    } catch (error) {
+      toast.error("Failed to send ❌", {
+        // id: toastId,
+      });
+    }
+  };
+
+
   return (
     <section id="contact" className="relative max-w-6xl mx-auto px-6 md:px-16 py-24">
 
@@ -35,8 +62,7 @@ export default function Contact() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-4 text-gray-400 hover:text-yellow-500 transition"
-                >
+                  className="flex items-center gap-4 text-gray-400 hover:text-yellow-500 transition">
                   <div className="w-10 h-10 border border-yellow-500/20 flex items-center justify-center text-yellow-500">
                     <Icon size={16} />
                   </div>
@@ -50,48 +76,57 @@ export default function Contact() {
 
         {/* RIGHT FORM */}
         <div>
-          <form className="flex flex-col gap-6">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
             {/* NAME */}
             <div>
-              <label className="text-[11px] uppercase tracking-[2px] text-gray-500 mb-2 block">
+              <label
+                htmlFor="name"
+                className="text-[11px] uppercase tracking-[2px] text-gray-500 mb-2 block">
                 Your Name
               </label>
               <input
+                id="name"
+                name="name"
                 type="text"
                 placeholder="John Doe"
-                className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm outline-none focus:border-yellow-500"
-              />
+                className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm outline-none focus:border-yellow-500" />
             </div>
 
             {/* EMAIL */}
             <div>
-              <label className="text-[11px] uppercase tracking-[2px] text-gray-500 mb-2 block">
+              <label
+                htmlFor="email"
+                className="text-[11px] uppercase tracking-[2px] text-gray-500 mb-2 block">
                 Email Address
               </label>
               <input
+                id="email"
+                name="email"
                 type="email"
                 placeholder="john@company.com"
-                className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm outline-none focus:border-yellow-500"
-              />
+                className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm outline-none focus:border-yellow-500" />
             </div>
 
             {/* MESSAGE */}
             <div>
-              <label className="text-[11px] uppercase tracking-[2px] text-gray-500 mb-2 block">
+              <label
+                htmlFor="message"
+                className="text-[11px] uppercase tracking-[2px] text-gray-500 mb-2 block">
                 Message
               </label>
               <textarea
+                id="message"
+                name="message"
                 placeholder="Tell me about your project or opportunity..."
-                className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm min-h-[150px] outline-none resize-none focus:border-yellow-500"
-              ></textarea>
+                className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm min-h-[150px] outline-none resize-none focus:border-yellow-500">
+              </textarea>
             </div>
 
             {/* BUTTON */}
             <button
               type="submit"
-              className="bg-yellow-500 text-black px-10 py-4 text-xs uppercase tracking-widest font-semibold w-fit hover:bg-yellow-400 transition"
-            >
+              className="bg-yellow-500 text-black px-10 py-4 text-xs uppercase tracking-widest font-semibold w-fit hover:bg-yellow-400 transition">
               Send Message
             </button>
 
