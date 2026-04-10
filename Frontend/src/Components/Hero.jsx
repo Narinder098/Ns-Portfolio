@@ -14,11 +14,13 @@ export default function Hero() {
     return (
         <section id="Hero"
             className="relative min-h-screen flex items-center px-6 md:px-16 overflow-hidden">
+
             {/* Glow Background */}
-            <div className="absolute w-[600px] h-[600px] bg-yellow-500/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+            <div className="absolute w-[500px] h-[500px] md:w-[600px] md:h-[600px] bg-yellow-500/10 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
             {/* MAIN CONTENT */}
-            <div className="max-w-3xl z-10 text-center md:text-left">
+            <div className="max-w-3xl z-10 text-center md:text-left mx-auto md:mx-0">
+
                 {/* Intro */}
                 <p className="flex items-center justify-center md:justify-start gap-4 uppercase tracking-[3px] text-yellow-500 text-xs mb-5">
                     <span className="w-10 h-[1px] bg-yellow-500"></span>
@@ -26,7 +28,7 @@ export default function Hero() {
                 </p>
 
                 {/* Name */}
-                <h1 className="font-serif text-5xl md:text-7xl leading-tight mb-2">
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl leading-tight mb-4">
                     Narinder <br /> Suthar
                 </h1>
 
