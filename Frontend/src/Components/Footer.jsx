@@ -1,28 +1,46 @@
-import React from 'react';
-import { socialLinks } from '../data/Social';
+import { socialLinks } from "../data/Social";
 
-export const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="py-6 px-4 ">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-center space-x-6 mb-4">
-          {socialLinks.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-[#64ffda] transition-colors transform hover:scale-110 group"
-              aria-label={social.label}
-            >
-              <social.icon size={20} className="group-hover:rotate-12 transition-transform" />
-            </a>
-          ))}
-        </div>
-        <p className="text-center text-gray-600 dark:text-gray-400">
-          Designed & Built by Narinder.
-        </p>
+    <footer className="border-t border-yellow-500/10 px-6 md:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-400 text-center md:text-left">
+
+      {/* LEFT */}
+      <div>
+        Designed & Built by{" "}
+        <span className="text-yellow-500">Narinder Suthar</span> ·{" "}
+        {new Date().getFullYear()}
       </div>
+
+      {/* RIGHT */}
+      <div className="flex flex-wrap justify-center md:justify-end gap-6 text-xs uppercase tracking-wider">
+        {socialLinks.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <a
+              key={item.label}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={item.label}
+              className="group flex items-center gap-2 hover:text-yellow-500 transition"
+            >
+              {/* ICON */}
+              <Icon
+                size={16}
+                className="group-hover:scale-110 transition"
+              />
+
+              {/* TEXT */}
+              <span className="relative">
+                {item.label.replace(" Profile", "")}
+                <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-yellow-500 transition-all group-hover:w-full"></span>
+              </span>
+            </a>
+          );
+        })}
+      </div>
+
     </footer>
   );
-};
+}
