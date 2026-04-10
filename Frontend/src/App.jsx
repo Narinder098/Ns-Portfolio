@@ -1,26 +1,21 @@
-import React from 'react'
-import Display from './Pages/Display'
-import Navbar from './Components/Navbar'
-import { Footer } from './Components/Footer'
-
+import React from "react";
+import Display from "./Pages/Display";
+import Navbar from "./Components/Navbar";
+import { Footer } from "./Components/Footer";
 
 function App() {
-
   return (
-    <>
-      <div className="bg-[#112233] text-gray-300 min-h-screen transition-colors duration-300">
-        {/* Animated Background */}
-        <div className="fixed inset-0 -z-10 overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        </div>
+    <div className="relative bg-[#112233] text-gray-300 min-h-screen">
 
-        <Navbar />
-        <Display />
-        <Footer />
+      {/* GRID BACKGROUND */}
+      <div className="fixed inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-      </div>
-    </>
-  )
+      <Navbar />
+      <Display />
+      <Footer />
+
+    </div>
+  );
 }
 
-export default App
+export default App;
