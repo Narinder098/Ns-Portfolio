@@ -1,5 +1,5 @@
 import { Contact } from "lucide-react";
-import { Experience } from "../Components/Experience";
+import Experience from "../Components/Experience";
 import Hero from "../Components/Hero";
 import { Projects } from "../Components/Project";
 import { Skills } from "../Components/Skills";
