@@ -30,8 +30,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative z-10 max-w-6xl mx-auto px-6 md:px-16 py-24"
-    >
+      className="relative z-10 max-w-6xl mx-auto px-6 md:px-16 py-24">
       {/* HEADER */}
       <div className="flex items-center gap-4 mb-14">
         <span className="text-yellow-500 font-serif text-sm italic">
@@ -50,8 +49,7 @@ export default function Skills() {
         {skills.map((skill, i) => (
           <div
             key={i}
-            className="relative bg-[#112233]/80 border border-yellow-500/10 p-5 text-center overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-yellow-500/30 group"
-          >
+            className="relative bg-[#112233]/80 border border-yellow-500/10 p-5 text-center overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-yellow-500/30 group">
             <div className="text-sm text-white font-medium mb-3">
               {skill.name}
             </div>

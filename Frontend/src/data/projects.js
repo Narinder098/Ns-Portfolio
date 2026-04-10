@@ -1,45 +1,32 @@
+
 export const projects = [
-{
-  title: 'Fitness Hub',
-  description: 'A modern MERN-stack fitness hub where users can shop for gym products, manage memberships, plan workouts, and track orders, while admins control inventory, orders, and payments through a secure dashboard.',
-  image: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe', 'JWT', 'Tailwind CSS'],
-  category: 'Full Stack',
-  links: {
-    github: 'https://github.com/Narinder098/Gym-project',
-    live: 'https://gym-project-client.onrender.com/'
-  }
-},{
-  title: 'Real-Time Collaboration Whiteboard  (currently in progress )',
-  description: 'A modern MERN-stack application that allows users to collaborate on a virtual whiteboard in real-time, with features like drawing, text, and image support.',
-  image: '',
-  tech: ['Next.js', 'MongoDB', 'Socket.IO', 'Tailwind CSS', 'TypeScript'],
-  category: 'Full Stack',
-  links: {
-    github: 'https://github.com/Narinder098/',
-    live: ''
-  }
-},
   {
-    title: 'Spotify Clone',
-    description: 'A web application that replicates the core functionality of the popular music streaming service Spotify. The application allows users to browse and play music, create playlists.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=60',
-    tech: ['React', 'MongoDB', 'Express', 'Tailwind'],
-    category: 'frontend',
-    links: {
-      github: "https://github.com/Narinder098/Spotify-clone",
-      live: 'https://cloneplayer.netlify.app/'
-    }
+    id: "01",
+    title: "Gym Management System",
+    type: "Full Stack · MERN",
+    desc: "Production-ready gym management platform with JWT authentication, role-based access, admin dashboard, cart, order management, subscription plans, and real-time Socket.io communication. 42+ commits.",
+    tech: ["React.js", "Node.js", "MongoDB", "JWT", "Socket.io", "Redux Toolkit"],
+    live: "https://gym-project-client.onrender.com/",
+    github: "https://github.com/Narinder098/Gym-project",
+    label: "GMS",
   },
-  // {
-  //   title: 'AI Content Generator',
-  //   description: 'An AI-powered content generation tool that helps create engaging blog posts and social media content.',
-  //   image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60',
-  //   tech: ['React', 'OpenAI API', 'Node.js', 'Redis'],
-  //   category: 'backend',
-  //   links: {
-  //     github: 'https://github.com',
-  //     live: 'https://demo.com'
-  //   }
-  // }
+  {
+    id: "02",
+    title: "Shuttering Managerment (Private Repo)",
+    type: "Business Tool · Next.js",
+    desc: "A real production tool built for a construction materials rental business. Smart inventory tracking, rent calculation, and payment management. Live on Vercel.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/Narinder098",
+    label: "SM",
+    reverse: true,
+  },
+  {
+    id: "03",
+    title: "Real-Time Chat Application",
+    type: "Real-Time · Socket.io",
+    desc: "Real-time messaging app with instant delivery using Socket.io and Firebase.",
+    tech: ["React.js", "Node.js", "Socket.io", "Firebase"],
+    github: "https://github.com/Narinder098",
+    label: "RTC",
+  },
 ];
