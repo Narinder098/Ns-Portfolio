@@ -7,7 +7,7 @@ export const projects = [
     desc: "Production-ready gym management platform with JWT authentication, role-based access, admin dashboard, cart, order management, subscription plans, and real-time Socket.io communication. 42+ commits.",
     tech: ["React.js", "Node.js", "MongoDB", "JWT", "Socket.io", "Redux Toolkit"],
     live: "https://gym-project-client.onrender.com/",
-    github: "https://github.com/Narinder098/Gym-project",
+    github: "https://github.com/narindersuthar/Gym-project",
     label: "GMS",
   },
   {
@@ -16,7 +16,7 @@ export const projects = [
     type: "Business Tool · Next.js",
     desc: "A real production tool built for a construction materials rental business. Smart inventory tracking, rent calculation, and payment management. Live on Vercel.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/Narinder098",
+    github: "https://github.com/narindersuthar",
     label: "SM",
     reverse: true,
   },
@@ -26,7 +26,7 @@ export const projects = [
     type: "Real-Time · Socket.io",
     desc: "Real-time messaging app with instant delivery using Socket.io and Firebase.",
     tech: ["React.js", "Node.js", "Socket.io", "Firebase"],
-    github: "https://github.com/Narinder098",
+    github: "https://github.com/narindersuthar/Chat-App",
     label: "RTC",
   },
 ];

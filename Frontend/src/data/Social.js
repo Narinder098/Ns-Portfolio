@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 export const socialLinks = [
   {
     icon: Github,
-    href: 'https://github.com/Narinder098',
+    href: 'https://github.com/narindersuthar',
     label: 'GitHub Profile'
   },
   {
