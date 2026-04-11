@@ -1,30 +1,30 @@
 import { socialLinks } from '../data/Social';
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 
 export default function Contact() {
+  const formRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-   // const toastId = toast.loading("Sending...");
+    const toastId = toast.loading("Sending...");
 
-    try {
-      // simulate API call (or EmailJS later)
-      // await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      toast.success("Message sent successfully ", {
-        style: {
-          background: "#1a2f45",
-          color: "#fff",
-          border: "1px solid rgba(234,179,8,0.3)",
-        },
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE,
+        import.meta.env.VITE_EMAILJS_TEMPLATE,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        toast.success("Message sent ✅", { id: toastId });
+        formRef.current.reset();
+      })
+      .catch(() => {
+        toast.error("Failed to send ❌", { id: toastId });
       });
-
-    } catch (error) {
-      toast.error("Failed to send ❌", {
-        // id: toastId,
-      });
-    }
   };
 
 
@@ -76,7 +76,7 @@ export default function Contact() {
 
         {/* RIGHT FORM */}
         <div>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
 
             {/* NAME */}
             <div>
@@ -87,7 +87,7 @@ export default function Contact() {
               </label>
               <input
                 id="name"
-                name="name"
+                name="user_name"
                 type="text"
                 placeholder="John Doe"
                 className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm outline-none focus:border-yellow-500" />
@@ -102,7 +102,7 @@ export default function Contact() {
               </label>
               <input
                 id="email"
-                name="email"
+                name="user_email"
                 type="email"
                 placeholder="john@company.com"
                 className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm outline-none focus:border-yellow-500" />
