@@ -1,33 +1,37 @@
 import { socialLinks } from '../data/Social';
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Contact() {
   const formRef = useRef();
+  const [sending, setSending] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (sending) return;
+    setSending(true);
+
     const toastId = toast.loading("Sending...");
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE;
+    const templateMain = import.meta.env.VITE_EMAILJS_TEMPLATE;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
     emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE,
-        import.meta.env.VITE_EMAILJS_TEMPLATE,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
+      .sendForm(serviceId, templateMain, formRef.current, publicKey)
       .then(() => {
         toast.success("Message sent ✅", { id: toastId });
         formRef.current.reset();
       })
       .catch(() => {
-        toast.error("Failed to send ❌", { id: toastId });
+        toast.error("Failed ❌", { id: toastId });
+      })
+      .finally(() => {
+        setSending(false);
       });
   };
-
-
   return (
     <section id="contact" className="relative max-w-6xl mx-auto px-6 md:px-16 py-24">
 
