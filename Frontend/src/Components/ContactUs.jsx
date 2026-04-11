@@ -6,6 +6,7 @@ import { useRef, useState } from "react";
 export default function Contact() {
   const formRef = useRef();
   const [sending, setSending] = useState(false);
+  const [lastSent, setLastSent] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -119,6 +120,11 @@ export default function Contact() {
                 type="text"
                 placeholder="John Doe"
                 className="w-full bg-[#1a2f45] border border-yellow-500/20 px-5 py-4 text-sm outline-none focus:border-yellow-500" />
+              <input
+                type="text"
+                name="company"
+                style={{ display: "none" }}
+              />
             </div>
 
             {/* EMAIL */}
@@ -154,8 +160,9 @@ export default function Contact() {
             {/* BUTTON */}
             <button
               type="submit"
+              disabled={sending}
               className="bg-yellow-500 text-black px-10 py-4 text-xs uppercase tracking-widest font-semibold w-fit hover:bg-yellow-400 transition">
-              Send Message
+              {sending ? "Sending..." : "Send Message"}
             </button>
 
           </form>
