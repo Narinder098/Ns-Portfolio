@@ -11,19 +11,43 @@ export default function Contact() {
     e.preventDefault();
 
     if (sending) return;
-    setSending(true);
 
+    const formData = new FormData(formRef.current);
+
+    // 🪤 Honeypot
+    if (formData.get("company")) return;
+
+    // ⏱️ Cooldown
+    const now = Date.now();
+    if (now - lastSent < 60000) {
+      toast.error("Please wait before sending again ⏳");
+      return;
+    }
+
+    // ✅ Validation
+    const name = formData.get("user_name");
+    const email = formData.get("user_email");
+    const message = formData.get("message");
+
+    if (!name || !email || !message) {
+      toast.error("All fields are required ❗");
+      return;
+    }
+
+    setSending(true);
     const toastId = toast.loading("Sending...");
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE;
-    const templateMain = import.meta.env.VITE_EMAILJS_TEMPLATE;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
     emailjs
-      .sendForm(serviceId, templateMain, formRef.current, publicKey)
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE,
+        import.meta.env.VITE_EMAILJS_TEMPLATE,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
       .then(() => {
         toast.success("Message sent ✅", { id: toastId });
         formRef.current.reset();
+        setLastSent(Date.now());
       })
       .catch(() => {
         toast.error("Failed ❌", { id: toastId });
